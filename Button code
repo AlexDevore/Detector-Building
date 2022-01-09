@@ -1,0 +1,17 @@
+int ButtonValue = 0;
+
+int LED = 2;
+int BUTTON = 3;
+
+void setup(){
+pinMode(LED,OUTPUT);
+pinMode(BUTTON,INPUT);
+}
+
+void loop(){
+if(ButtonValue != 0){
+digitalWrite(LED,HIGH);
+}else{
+digitalWrite(LED,LOW);
+}
+}
