@@ -1,0 +1,54 @@
+boolean flipFlop=true;
+int tw = 10.0;
+int tm = 2000.0;
+int RED = 7;
+int GREEN =6;
+int BLUE =5;
+void setup () {
+pinMode(13, OUTPUT);
+pinMode(12, OUTPUT);
+pinMode(RED,OUTPUT);
+pinMode(GREEN,OUTPUT);
+pinMode(BLUE,OUTPUT);
+Serial.begin(9600);
+}
+void loop() {
+//Alternating Current
+ if (flipFlop==true){
+ digitalWrite(13, HIGH);
+ digitalWrite(12, LOW);
+ flipFlop=false;
+ }
+ else{
+ digitalWrite(13, LOW);
+ digitalWrite(12, HIGH);
+ flipFlop=true;
+ }
+//Measure after 2 seconds
+if ((millis() % tm) < 20){
+ int sensorValue = analogRead(A0);
+ float voltage = sensorValue * (5.0 / 1023.0);
+ Serial.println(voltage);
+ delay(20);
+//Show the result as a specific color
+ if (voltage< 2.5){// concentration < 1 gr/100ml Red
+ digitalWrite(RED,HIGH);
+ digitalWrite(GREEN,LOW);
+ digitalWrite(BLUE,LOW);
+}
+if (voltage>2.5 and voltage<3.9 ){
+// concentration between 1 and 2 gr/100mL (tap water in the Netherlands) Green
+ digitalWrite(RED,LOW);
+ digitalWrite(GREEN,HIGH);
+ digitalWrite(BLUE,LOW);
+}
+if (voltage>3.9 ){// concentration > 2 gr/100ml Blue
+ digitalWrite(RED,LOW);
+ digitalWrite(GREEN,LOW);
+ digitalWrite(BLUE,HIGH);
+}
+
+}
+
+
+}
