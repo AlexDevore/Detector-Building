@@ -1,0 +1,90 @@
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);   // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+
+
+boolean flipFlop=true;
+int tw = 10.0; 
+int tm = 2000.0;
+int RED = 7;
+int GREEN =6;
+int BLUE =5;
+float PPM ;
+
+void setup () {
+pinMode(13, OUTPUT);
+pinMode(12, OUTPUT);
+pinMode(RED,OUTPUT);
+pinMode(GREEN,OUTPUT);
+pinMode(BLUE,OUTPUT);
+  lcd.init();                          // initialize the lcd
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(1, 0);
+  lcd.clear();
+  lcd.print("Arduino");
+  lcd.setCursor(0, 1);
+  lcd.print("Voltmeter");
+  delay(1500);
+  lcd.clear();
+  lcd.setCursor(0, 1);       
+  pinMode(A0, INPUT);
+  Serial.begin(9600);               // starting the Serial Monitor
+
+}
+void loop() {
+//Alternating Current
+ if (flipFlop==true){
+ digitalWrite(13, HIGH);
+ digitalWrite(12, LOW);
+ flipFlop=false;
+ }
+ else{
+ digitalWrite(13, LOW);
+ digitalWrite(12, HIGH);
+ flipFlop=true;
+ }
+
+//Measure after 2 seconds
+if ((millis() % tm) < 20){
+ int sensorValue = analogRead(A0);
+ float voltage = sensorValue * (5.0 / 1023.0);
+ float PPM = 0.524*pow(2.718,2.24*voltage);
+lcd.print("voltage is:");
+  lcd.setCursor(0, 1);
+  delay(100);
+  lcd.print(voltage);
+  delay(1000);
+  lcd.clear();
+lcd.print("PPM is:");
+  lcd.setCursor(0, 1);
+  delay(100);
+  lcd.print(PPM);
+  delay(1000);
+  lcd.clear();
+//Show the result as a specific color
+ if (voltage<= 3.29){// concentration < 1 gr/100ml Red
+ digitalWrite(RED,HIGH);
+ digitalWrite(GREEN,LOW);
+ digitalWrite(BLUE,LOW);
+}
+if (voltage>3.29 and voltage<=3.63 ){
+// concentration between 1 and 2 gr/100mL (tap water in the Netherlands) Green
+ digitalWrite(RED,LOW);
+ digitalWrite(GREEN,HIGH);
+ digitalWrite(BLUE,LOW);
+
+}
+if (voltage>3.63){// concentration > 2 gr/100ml Blue
+ digitalWrite(RED,LOW);
+ digitalWrite(GREEN,LOW);
+ digitalWrite(BLUE,HIGH);
+}
+
+}
+
+
+}
+
+float vol = 0;
+int input = 0;
