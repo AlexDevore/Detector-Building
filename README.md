@@ -17,14 +17,29 @@ This project used an Arduino to measure and display multiple readings such as te
   LiquidCrystal_I2C: Used for interfacing with the I2C-enabled LCD.
 
   # Code Overview
-    B: B value of the thermistor
-    R0: Reference resistance of the thermistor
-    pinTempSensor: Pin connected to the Grove Temperature Sensor
-    sensorPin: Pin connected to the analog voltage sensor
-    RED, GREEN, BLUE: Pins for RGB LED output
-    flipFlop: Boolean variable to control LED alternation
-    tw: Time for LED alternation (milliseconds)
-    tm: Time for measurements (milliseconds)
-    Temp, sensorInput, PPM: Variables for temperature, sensor input, and salt concentration
-    lcd: LiquidCrystal_I2C object for controlling the LCD
+  B: B value of the thermistor
+  R0: Reference resistance of the thermistor
+  pinTempSensor: Pin connected to the Grove Temperature Sensor
+  sensorPin: Pin connected to the analog voltage sensor
+  RED, GREEN, BLUE: Pins for RGB LED output
+  flipFlop: Boolean variable to control LED alternation
+  tw: Time for LED alternation (milliseconds)
+  tm: Time for measurements (milliseconds)
+  Temp, sensorInput, PPM: Variables for temperature, sensor input, and salt concentration
+  lcd: LiquidCrystal_I2C object for controlling the LCD
+
+  # Loop
+  Alternating LED states to indicate the system is active.
+  Performing measurements every 2 seconds.
+  Calculating temperature, voltage, and PPM.
+  Displaying the results on the LCD.
+  Changing the color of an RGB LED based on voltage level.
+
+  # Works Cited
 https://theiotprojects.com/digital-voltmeter-using-arduino-16x2-lcd/
+https://www.instructables.com/Measuring-salt-concentration-with-AC/
+https://www.teachengineering.org/activities/view/nyu_probe_activity1
+
+![Capture](https://github.com/AlexDevore/Detector-Building/assets/97128910/54a42a11-ca4b-47b0-bbf7-611e52cc37af)
+![image](https://github.com/AlexDevore/Detector-Building/assets/97128910/1ee50b7b-433e-4de5-aa74-351ac918d6b0)
+
