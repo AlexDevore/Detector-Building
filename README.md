@@ -12,6 +12,7 @@ This project used an Arduino to measure and display multiple readings such as te
   Green LED
   Blue LED
   Diodes
+  Voltage Detection Module DC 0~25V Voltage Sensor for Arduino
   
   # Libraries
   LiquidCrystal_I2C: Used for interfacing with the I2C-enabled LCD.
@@ -35,11 +36,15 @@ This project used an Arduino to measure and display multiple readings such as te
   Displaying the results on the LCD.
   Changing the color of an RGB LED based on voltage level.
 
+  # My Own Data
+![Capture](https://github.com/AlexDevore/Detector-Building/assets/97128910/54a42a11-ca4b-47b0-bbf7-611e52cc37af)
+![image](https://github.com/AlexDevore/Detector-Building/assets/97128910/1ee50b7b-433e-4de5-aa74-351ac918d6b0)
+  
   # Works Cited
 https://theiotprojects.com/digital-voltmeter-using-arduino-16x2-lcd/
 https://www.instructables.com/Measuring-salt-concentration-with-AC/
 https://www.teachengineering.org/activities/view/nyu_probe_activity1
+https://theiotprojects.com/interface-dc-voltage-sensor-with-arduino/
+https://github.com/Haadi-Khan/Detector-Building
 
-![Capture](https://github.com/AlexDevore/Detector-Building/assets/97128910/54a42a11-ca4b-47b0-bbf7-611e52cc37af)
-![image](https://github.com/AlexDevore/Detector-Building/assets/97128910/1ee50b7b-433e-4de5-aa74-351ac918d6b0)
-
+If you find any issues besides the already-known temperature sensor code or have any suggestions, please open an issue or contribute to the project.
