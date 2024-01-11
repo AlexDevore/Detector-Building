@@ -17,5 +17,14 @@ This project used an Arduino to measure and display multiple readings such as te
   LiquidCrystal_I2C: Used for interfacing with the I2C-enabled LCD.
 
   # Code Overview
-  
+    B: B value of the thermistor
+    R0: Reference resistance of the thermistor
+    pinTempSensor: Pin connected to the Grove Temperature Sensor
+    sensorPin: Pin connected to the analog voltage sensor
+    RED, GREEN, BLUE: Pins for RGB LED output
+    flipFlop: Boolean variable to control LED alternation
+    tw: Time for LED alternation (milliseconds)
+    tm: Time for measurements (milliseconds)
+    Temp, sensorInput, PPM: Variables for temperature, sensor input, and salt concentration
+    lcd: LiquidCrystal_I2C object for controlling the LCD
 https://theiotprojects.com/digital-voltmeter-using-arduino-16x2-lcd/
